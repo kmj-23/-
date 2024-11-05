@@ -61,7 +61,7 @@
     "title": "강의 듣기",
     }
     {
-    "id": "2222",
+    "id": "2",
     "title": "치과 진료",
         ..
     }
@@ -113,7 +113,7 @@
 <pre>
   <code>
     {
-    "id": "1111",
+    "id": "1",
     "title": "졸업논문 마감일",
     "contents": "토익으로 대체가능"
     }
@@ -148,28 +148,25 @@
 
 
 
-
-
 # 일정관리앱 SQL
 ### 1.스케줄 및 유저 테이블 생성 query(Create)
 <pre>
   <code>
   //schedule 테이블 생성
-  CREATE TABLE `schedule` (
-  `id` int NOT NULL,
-  `title` varchar(45) DEFAULT NULL,
-  `content` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `creat_date` timestamp(6) NULL DEFAULT NULL,
-  `update_date` timestamp(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)) 
+  CREATE TABLE schedule (
+  id int NOT NULL PRIMARY KEY,
+  title varchar(45) NOT NULL,
+  content varchar(45) NOT NULL,
+  password varchar(45) NOT NULL,
+  creat_date timestamp(6) NOT NULL,
+  update_date timestamp(6) NOT NULL);
 
  //user 테이블 생성
- CREATE TABLE `user` (
-  `email` char(1) NOT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`email`));
+  CREATE TABLE user(
+  userID int NOT NULL PRIMARY KEY,
+  email varchar NOT NULL,
+  password varchar(45) NOT NULL,
+  name varchar(45) NOT NULL);
   </code>
 </pre>
 
@@ -177,75 +174,60 @@
 <pre>
   <code>
 //schedule 생성
-INSERT INTO `test`.`schedule`
-(`id`,`title`,`content`,`password`,`creat_date`,`update_date`)
+INSERT INTO schedule
+(id, title, content, password, creat_date, update_date)
 VALUES
-(<{id: 1111}>,<{title: 강의 듣기  }>,<{content: 다음주 월요일 마감 }>,<{password: 1234 }>,<{creat_date: 241013}>,<{update_date: 241015}>);
+(id: '1', '강의 듣기', '다음주 월요일 마감', '1234', '241013', '241015');
 
 //user 생성
-  INSERT INTO `test`.`user`
-(`email`,
-`password`,
-`name`)
+INSERT INTO user
+(userID, email, password, name)
 VALUES
-(<{email: }>,
-<{password: }>,
-<{name: }>);
-</code>
+('abc', 'abc@naver.com' , '1234', '김민주');
+  </code>
 </pre>
 
 ### 3. 전체 일정 조회 query(Select)
 <pre>
   <code>
-SELECT `schedule`.`id`,
-    `schedule`.`title`,
-    `schedule`.`content`,
-    `schedule`.`password`,
-    `schedule`.`creat_date`,
-    `schedule`.`update_date`
-FROM `test`.`schedule`;
+SELECT *
+FROM schedule;
     </code>
 </pre>
 
 ### 4. 선택 일정 조회 query(Select) (일정명 조회)
 <pre>
   <code>
-SELECT `schedule`.`title`,
-    
-FROM `test`.`schedule`;
+SELECT title 
+FROM schedule;
   </code>
 </pre>   
-
 
 ### 5. 선택 일정 수정 및 유저 정보 수정 query(Update)
 <pre>
   <code>
-UPDATE `test`.`schedule`
-SET
 //schedule 정보 수정
-`id` = <{id: }>,
-`title` = <{title: }>,
-`content` = <{content: }>,
-`password` = <{password: }>,
-`creat_date` = <{creat_date: }>,
-`update_date` = <{update_date: }>
-WHERE `id` = <{expr}>;
-  
+UPDATE schedule
+SET 
+title='바뀐 제목',
+contents='바뀐 내용'
+WHERE id = 1;
+    
 //user 정보 수정
-UPDATE `test`.`user`
+UPDATE user
 SET
-`email` = <{email: }>,
-`password` = <{password: }>,
-`name` = <{name: }>
-WHERE `email` = <{expr}>;
+email = '바뀐 e-mail 주소',
+password= '바뀐 비밀번호'
+name= '바뀐 이름'
+WHERE userId = 'userId';
   </code>
 </pre>
 
 ### 6. 선택 일정 삭제 query(Delete)
 <pre>
   <code>
-DELETE FROM `test`.`schedule`
-WHERE <{where_expression}>;
+DELETE FROM schedule
+WHERE id=1
    </code>
 </pre>
 
