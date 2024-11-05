@@ -285,7 +285,8 @@
 
 
 # 일정관리 앱 ERD
-![image](https://github.com/user-attachments/assets/a5629185-c51f-4ea0-b205-ed8520aede42)
+![image](https://github.com/user-attachments/assets/e2e572ec-28ad-46e5-bbaf-da8592b14e0e)
+
 
 
 
