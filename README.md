@@ -3,9 +3,9 @@
 |:---:|:---:|:---:|:---:|:---:|:---|
 |일정 생성하기|POST|/api/schedules|요청body|등록정보|- 성공: 201 Created|
 |일정 전체 조회하기|GET|/api/schedules||다건응답 정보|- 성공: - Status Code 200 OK<br>- 전체 일정x: 200 OK & []|
-|일정 단건 조회하기|GET|/api/schedules/{id}|요청param|단건응답 정보|- 성공: 200 OK<br>- 전체 일정x: 404 NotFound|
-|일정 수정<br>(덮어쓰기)|PUT|/api/schedules/{id}|요청param/<br>요청body|수정 정보|- 성공: 200 OK<br>- 해당하는 일정x: 404 NotFound<br>- 입력할 값을 누락: 400 BadRequest|
-|일정 삭제하기|DELETE|/api/schedules/{id}|요청param||- 성공: Status Code 200 OK<br>- 삭제하려는 일정x: 404 NotFound|
+|일정 단건 조회하기|GET|/api/schedules/{id}||단건응답 정보|- 성공: 200 OK<br>- 전체 일정x: 404 NotFound|
+|일정 수정<br>(덮어쓰기)|PUT|/api/schedules/{id}|<br>요청body|수정 정보|- 성공: 200 OK<br>- 해당하는 일정x: 404 NotFound<br>- 입력할 값을 누락: 400 BadRequest|
+|일정 삭제하기|DELETE|/api/schedules/{id}|||- 성공: Status Code 200 OK<br>- 삭제하려는 일정x: 404 NotFound|
 
 
 ### ■ 일정 생성
@@ -28,12 +28,12 @@
 
 
 #### □ 응답
-|이름|타입|설명|필수여부|
-|:---:|:---:|:---:|:---:|
-|id|string|아이디|필수|
-|title|String|일정명|필수|
-|content|String|일정 내용|필수|
-|password|String|비밀번호|필수|
+|이름|타입|설명|
+|:---:|:---:|:---:|
+|id|string|아이디|
+|title|String|일정명|
+|content|String|일정 내용|
+|password|String|비밀번호|
 
 <pre>
   <code>
@@ -48,10 +48,10 @@
 
 ### 일정 전체 조회하기 
 #### □ 응답
-|이름|타입|설명|필수여부|
-|:---:|:---:|:---:|:---:|
-|id|string|아이디|필수|
-|title|String|일정명|필수|
+|이름|타입|설명|
+|:---:|:---:|:---:|
+|id|string|아이디|
+|title|String|일정명|
 
 <pre>
   <code>
@@ -71,11 +71,11 @@
 
 ### 일정 단건 조회하기
 #### □ 응답
-|이름|타입|설명|필수여부|
-|:---:|:---:|:---:|:---:|
-|id|string|아이디|필수|
-|title|String|일정명|필수|
-|content|String|일정 내용|필수|
+|이름|타입|설명|
+|:---:|:---:|:---:|
+|id|string|아이디|
+|title|String|일정명|
+|content|String|일정 내용|
 
 <pre>
   <code>
@@ -104,11 +104,11 @@
 </pre>
 
 #### □ 응답
-|이름|타입|설명|필수여부|
-|:---:|:---:|:---:|:---:|
-|id|string|아이디|필수|
-|title|String|일정명|필수|
-|content|String|일정 내용|필수|
+|이름|타입|설명|
+|:---:|:---:|:---:|
+|id|string|아이디|
+|title|String|일정명|
+|content|String|일정 내용|
 
 <pre>
   <code>
