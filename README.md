@@ -55,7 +55,7 @@
 
 <pre>
   <code>
-    [
+    {[
     {
     "id": "1",
     "title": "강의 듣기",
@@ -65,7 +65,7 @@
     "title": "치과 진료",
         ..
     }
-    ]
+    ]}
   </code>
 </pre>
 
@@ -163,7 +163,7 @@
 
  //user 테이블 생성
   CREATE TABLE user(
-  userID int NOT NULL PRIMARY KEY,
+  id int NOT NULL PRIMARY KEY,
   email varchar NOT NULL,
   password varchar(45) NOT NULL,
   name varchar(45) NOT NULL);
@@ -177,11 +177,11 @@
 INSERT INTO schedule
 (id, title, content, password, creat_date, update_date)
 VALUES
-(id: '1', '강의 듣기', '다음주 월요일 마감', '1234', '241013', '241015');
+(id: '1', '강의 듣기', '다음주 월요일 마감', '1234', '24-10-13', '24-10-15');
 
 //user 생성
 INSERT INTO user
-(userID, email, password, name)
+(id, email, password, name)
 VALUES
 ('abc', 'abc@naver.com' , '1234', '김민주');
   </code>
@@ -190,7 +190,7 @@ VALUES
 ### 3. 전체 일정 조회 query(Select)
 <pre>
   <code>
-SELECT *
+SELECT id, title, content, password, create_date, update_date
 FROM schedule;
     </code>
 </pre>
@@ -219,7 +219,7 @@ SET
 email = '바뀐 e-mail 주소',
 password= '바뀐 비밀번호'
 name= '바뀐 이름'
-WHERE userId = 'userId';
+WHERE id = '2';
   </code>
 </pre>
 
