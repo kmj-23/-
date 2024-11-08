@@ -158,7 +158,7 @@
   title varchar(45) NOT NULL,
   content varchar(45) NOT NULL,
   password varchar(45) NOT NULL,
-  creat_date timestamp(6) NOT NULL,
+  create_date timestamp(6) NOT NULL,
   update_date timestamp(6) NOT NULL);
 
  //user 테이블 생성
